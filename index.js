@@ -1,16 +1,4 @@
-// const express = require('express');
-// const dotenv = require('dotenv').config();
-// const port = process.env.PORT || 5000;
 
-// const app = express();
-
-// // enable body parser
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-
-// app.use('/openai', require('./routes/openaiRoutes'));
-
-// app.listen(port, () => console.log(`Server started at ${port}`));
 
 const path = require('path');
 const express = require('express');
@@ -22,6 +10,10 @@ const app = express();
 // Enable body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// set static folder
+app.use(express.static(path.join(__dirname, 'public')))
+
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
